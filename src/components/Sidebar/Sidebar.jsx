@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./sidebar.css"
 import {assets} from '../../assets/assets'
 const Sidebar = () => {
-    const [extended,setExtended] = useState();
+    const [extended,setExtended] = useState(false);
     return (
     <div className='sidebar'>
       <div className="top">
