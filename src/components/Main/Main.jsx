@@ -3,9 +3,13 @@ import "./main.css"
 import { assets } from '../../assets/assets'
 import { Context } from '../../context/Context'
 const Main = () => {
-
-    const {onSent, recentPrompt, showResult, loading, resultData,setInput, input} = useContext(Context)
-
+    const {onSent, recentPrompt, showResult, loading, resultData,setInput, input,setRecentPrompt} = useContext(Context)
+    //for card on prompt load data
+    const loadPrompt = async(prompt) => {
+        setInput(prompt);
+        await onSent(prompt);
+      }
+      
   return (
     <div className="main">
         <div className="nav">
@@ -17,24 +21,24 @@ const Main = () => {
             {!showResult
             ?<>
                 <div className="greet">
-                <p><span>Hello, Dev.</span></p>
+                <p><span>Hello, Priya.</span></p>
                 <p>How can I help you today?</p>
                 </div>
                 <div className="cards">
-                <div className="card">
-                    <p>Suggest beautiful places to see on an upcoming road trip</p>
-                    <img src={assets.compass_icon} alt="" />
+                <div className="card" onClick={() => loadPrompt("Suggest beautiful places to see on an upcoming road trip")}>
+                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                <img src={assets.compass_icon} alt="" />
                 </div>
-                <div className="card">
+                <div className="card" onClick={() => loadPrompt("Briefly summarize this concept: urban planning")}>
                     <p>Briefly summarize this concept: urban planning</p>
                     <img src={assets.bulb_icon} alt="" />
                 </div>
-                <div className="card">
+                <div className="card" onClick={() => loadPrompt("Brainstorm team bonding activities for our work retreat")}>
                     <p>Brainstorm team bonding activities for our work retreat</p>
                     <img src={assets.message_icon} alt="" />
                 </div>
-                <div className="card">
-                    <p>Improve the readability of the following code</p>
+                <div className="card" onClick={() => loadPrompt("Make me a personal webpage")}>
+                    <p>Make me a personal webpage</p>
                     <img src={assets.code_icon} alt="" />
                 </div>
             </div>
@@ -48,9 +52,9 @@ const Main = () => {
                     <img src={assets.gemini_icon} alt="" />
                     {loading
                     ?<div className='loader'>
-                        <hr/>
-                        <hr/>
-                        <hr/>
+                        <hr />
+                        <hr />
+                        <hr />
                     </div>
                     :<p dangerouslySetInnerHTML={{__html:resultData}}></p>}
                 </div>
