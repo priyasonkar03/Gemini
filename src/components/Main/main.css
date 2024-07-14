@@ -17,6 +17,10 @@
     width: 40px;
     border-radius: 50%;
 }
+.main .nav .logo img{
+    width: 150px;
+    height: 100px;
+}
 .main-container{
     max-width: 900px;
     margin: auto;
