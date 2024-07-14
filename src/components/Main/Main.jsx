@@ -23,7 +23,7 @@ const Main = () => {
             {!showResult
             ?<>
                 <div className="greet">
-                <p><span>Hello, Priya.</span></p>
+                <p><span>Hello..!</span></p>
                 <p>How can I help you today?</p>
                 </div>
                 <div className="cards">
@@ -75,6 +75,7 @@ const Main = () => {
                 </div>
                 <p className="bottom-info">
                     Gemini may display inacurate info, including about people, so double-check its responses. Your privacy and Gemini Apps
+                    <p>&copy; 2024 - Gemini - Developed by | <a href="https://github.com/priyasonkar03"><b>Priya Sonkar</b></a></p>
                 </p>
             </div>
         </div>
